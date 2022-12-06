@@ -11,9 +11,9 @@ public class Employee {
     private final String lastName;
 
     private final int department;
-    private final double salary;
+    private final int salary;
 
-    public Employee(String firstName, String lastName, int department, double salary) {
+    public Employee(String firstName, String lastName, int department, int salary) {
         if (StringUtils.isAlpha(firstName) && !StringUtils.isAllBlank(firstName)) {
             this.firstName = StringUtils.capitalize(firstName);
         }else {
@@ -49,7 +49,7 @@ public class Employee {
         return department;
     }
 
-    public double getSalary() {
+    public int getSalary() {
         return salary;
     }
 

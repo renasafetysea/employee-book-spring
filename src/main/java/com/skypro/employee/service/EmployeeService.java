@@ -33,18 +33,19 @@ public class EmployeeService {
 
     }
 
-    public double getSalarySum(){
-        return employees.values().stream().mapToDouble(Employee::getSalary).sum();
+    public int getSalarySum(){
+        return employees.values().stream().mapToInt(Employee::getSalary).sum();
     }
 
-    public double getSalaryMin(){
-        return employees.values().stream().mapToDouble(Employee::getSalary).min().orElse(0);
+    public int getSalaryMin(){
+        return employees.values().stream().mapToInt(Employee::getSalary).min().orElse(0);
     }
-    public double getSalaryMax() {
-        return employees.values().stream().mapToDouble(Employee::getSalary).max().orElse(0);
+    public int getSalaryMax() {
+        return employees.values().stream().mapToInt(Employee::getSalary).max().orElse(0);
     }
     public List<Employee> getHighSalary() {
-       double highSalary = employees.values().stream().mapToDouble(Employee::getSalary).average().orElseThrow();
+       double highSalary = employees.values().stream().mapToInt(Employee::getSalary).average().orElseThrow();
         return employees.values().stream().filter(e -> e.getSalary() > highSalary).collect(Collectors.toList());
     }
+    
 }
